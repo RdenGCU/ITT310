@@ -1,37 +1,56 @@
 #include <stdio.h>
+
+int main()
 // Int main is a function letting the program know that it needs to return an integer at the end of execution. we do so by putting "return 0;" at the end of the program.
-int main(true)
 {
-			char op;
-			//char is used to implement arthimetic operations. OP lets the program know operators will be used.
-			double first, second;
-			// double is a variable that stores numbers in computer memory. 
-			printf("Enter operand (+, -, *, /): ");
-			//printf prints a string 
-			scanf_s("%c", &op);
-			//scanf_s reads data from the standard input string and writes it into an argument. %c prints ASCII representation of a character.
-			printf("\nEnter two operands: ");
-			scanf_s("%lf %lf", &first, &second);
-			//%1lf Tells the program how many digits should be behind the decimal point.
-			switch (op) {
-				// the switch statement takes a variable and tests it for equality against a list of values. Each value is a "case".
-			case '+':
-				printf("%.1lf + %.1lf = %.1lf\n", first, second, first + second);
-				//%.1lf limits the output to one decimal place
-				break;
-				//A break statement terminates the loop or switch statement.
-			case '-':
-				printf("%.1lf - %.1lf = %.1lf\n", first, second, first - second);
-				break;
-			case '*':
-				printf("%.1lf * %.1lf = %.1lf\n", first, second, first * second);
-				break;
-			case '/':
-				printf("%.1lf / %.1lf = %.1lf\n", first, second, first / second);
-				break;
-				// operator doesn't match any operand available
-			default:
-				printf("Error! Operator is not correct\n");
-			}
-	return 0;
+    char yes;
+    int a, b, c, choice;
+    // defines different integers
+
+    yes = 'y';
+    while (yes == 'y' || yes == 'Y')
+    {
+        printf("Enter first integer: ");
+        scanf_s("%d", &a);
+        //scanf_s reads data from the standard input string and writes it into an argument. %d specifies type of variable by decimal
+        printf("Enter second integer: ");
+        scanf_s("%d", &b);
+
+        printf("\nAdd(1), Subtract(2), Multiply(3), Divide(4): ");
+        scanf_s("%d", &choice);
+
+        printf("\n");
+        switch (choice)
+            // the switch statement takes a variable and tests it for equality against a list of values. Each value is a "case".
+        {
+        case(1):
+            c = a + b;
+            printf("%d + %d = %d\n", a, b, c);
+            break;
+        case(2):
+            c = a - b;
+            printf("%d - %d = %d\n", a, b, c);
+            break;
+        case(3):
+            c = a * b;
+            printf("%d * %d = %d\n", a, b, c);
+            break;
+        case(4):
+            c = a / (float)b;
+	    //float defines numeric values with a floating decimal point
+            printf("%d / %d = %d\n", a, b, c);
+            break;
+        default:
+            printf("Incorrect choice. Try again.\n");
+            // operator doesn't match any operand available
+        }
+
+
+        printf("\nAgain (Y/N): ");
+        while (getchar() != '\n')
+            getchar();
+        scanf_s(" %c", &yes);
+    }
+
+    return 0;
 }
