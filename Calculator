@@ -2,11 +2,11 @@
 
 int main()
 // Int main is a function letting the program know that it needs to return an integer at the end of execution. we do so by putting "return 0;" at the end of the program.
-{
+{        
     char yes;
-    int a, b, c, choice;
-    // defines different integers
-
+    //variable that holds data (letters, numbers, etc).
+    int a, b, c, choice;  // defines different integers
+    // user (local) defined function yes = y. Additionally added the yes can == 'y' or 'Y' dependent on how the user inputs the letter.
     yes = 'y';
     while (yes == 'y' || yes == 'Y')
     {
@@ -36,21 +36,24 @@ int main()
             printf("%d * %d = %d\n", a, b, c);
             break;
         case(4):
-            c = a / (float)b;
-	    //float defines numeric values with a floating decimal point
+            c = a /(float) b;
             printf("%d / %d = %d\n", a, b, c);
             break;
         default:
             printf("Incorrect choice. Try again.\n");
-            // operator doesn't match any operand available
+            // operator doesn't match any operand available.
         }
-
-
+    int var = choice; //integer variables declaration
+    int* ip; //pointer variable declaration
+    ip = &var; //store address of var in pointer value
+    printf("The value of ptr is : %x\n", &var);
+        printf("Great job!");
         printf("\nAgain (Y/N): ");
         while (getchar() != '\n')
             getchar();
         scanf_s(" %c", &yes);
     }
-
+  
     return 0;
 }
+
