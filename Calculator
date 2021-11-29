@@ -2,13 +2,37 @@
 
 int main()
 // Int main is a function letting the program know that it needs to return an integer at the end of execution. we do so by putting "return 0;" at the end of the program.
-{        
+ 
+{            
+  
+    // A data structure      
+    typedef struct
+    {
+        int month;
+        int day;
+        int year;
+    }Date;
+
+    //Create an instance of today
+    Date today;
+
+    //Populate the Date Structure
+    today.month = 11;
+    today.day = 28;
+    today.year = 2021;
+
+    // Print the contents of the Data Structure
+    printf_s("The date is %i%i%.2i.\n", today.month, today.day, today.year % 100);
+    
+
     char yes;
     //variable that holds data (letters, numbers, etc).
     int a, b, c, choice;  // defines different integers
     // user (local) defined function yes = y. Additionally added the yes can == 'y' or 'Y' dependent on how the user inputs the letter.
+
     yes = 'y';
     while (yes == 'y' || yes == 'Y')
+
     {
         printf("Enter first integer: ");
         scanf_s("%d", &a);
@@ -36,7 +60,7 @@ int main()
             printf("%d * %d = %d\n", a, b, c);
             break;
         case(4):
-            c = a /(float) b;
+            c = (float)a /(float)b;
             printf("%d / %d = %d\n", a, b, c);
             break;
         default:
@@ -53,7 +77,7 @@ int main()
             getchar();
         scanf_s(" %c", &yes);
     }
-  
+ 
     return 0;
+    
 }
-
